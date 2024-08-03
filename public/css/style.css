@@ -1,0 +1,9 @@
+.navbar-title {
+    font-weight: bold;
+    margin-top: 10px;
+    padding-left: 15px
+}
+.navbar-custom {
+    display: flex;
+    flex-direction: column;
+}
