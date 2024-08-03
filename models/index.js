@@ -1,4 +1,4 @@
-const User = require('./Users');
+const User = require('./User');
 const Blog = require('./Blog');
 
 User.hasMany(Blog, {
@@ -6,7 +6,7 @@ User.hasMany(Blog, {
     onDelete: 'CASCADE'
 });
 
-Blog.belogsTo(User, {
+Blog.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
