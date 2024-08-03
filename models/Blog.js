@@ -18,9 +18,6 @@ Blog.init(
         contents: {
             type: DataTypes.STRING,
         },
-        username: {
-            type: DataTypes.STRING,
-        },
         date_created: {
             type: DataTypes.DATE,
             allowNull: false,
