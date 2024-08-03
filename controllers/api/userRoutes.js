@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User } = require('../../models');
 
 //if a POST request is made to /api/users, a new user is created.
 router.post('/', async (req, res) => {
