@@ -17,6 +17,25 @@ router.post('/', async (req, res) => {
     }
 });
 
+//POST request for api/users/signup
+router.post('/signup', async (req, res) => {
+    try {
+        const newUser = req.body;
+
+        const createdUser = await User.create(newUser);
+
+        req.session.save(() => {
+            req.session.user_id = createdUser.id;
+            req.session.name = createdUser.name;
+            req.session.logged_in = true;
+
+            res.status(200).json({ message: 'user created successfully'});
+        })
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 //POST request for api/users/login
 router.post('/login', async (req, res) => {
     try {
@@ -49,6 +68,8 @@ router.post('/login', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+//
 
 //POST request for /api/users/logout
 router.post('/logout', (req, res) => {
