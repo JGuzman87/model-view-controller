@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
 
     const blogData = await Blog.findAll({
-      incule: [
+      include: [
         {
           model: User,
           attributes: ['name'],
@@ -45,6 +45,15 @@ router.get('/blog/:id', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/login', (req, res) => {
+  //if user is already logged in, reditect
+  if (req.session.logged_in) {
+    res.redirect('/blog');
+    return;
+  }
+  res.render('login');
 });
 
 module.exports = router;
