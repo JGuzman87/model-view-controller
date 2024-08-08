@@ -50,7 +50,7 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/login', (req, res) => {
   //if user is already logged in, reditect
   if (req.session.logged_in) {
-    res.redirect('/blog');
+    res.redirect('/');
     return;
   }
   res.render('login');
