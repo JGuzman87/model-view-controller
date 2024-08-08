@@ -25,7 +25,27 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/homepage', async (req, res) => {
+  try {
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+    const blogs = blogData.map((blog) => blog.get({ plain: true}));
+    res.render('homepage', {
+      blogs,
+      logged_in: req.session.logged_in,
+    });
+  }catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboad', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -38,7 +58,7 @@ router.get('/blog/:id', async (req, res) => {
 
     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
+    res.render('dashboard', {
       ...blog,
       logged_in: req.session.logged_in
     });
