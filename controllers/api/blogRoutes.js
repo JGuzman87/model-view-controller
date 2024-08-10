@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, User } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
@@ -24,10 +24,35 @@ router.delete('/:id', async (req, res) => {
         });
 
         if (!blogData) {
-            res.status(404).json({ message: 'No project found with this id!'});
+            res.status(404).json({ message: 'No blog found with this id!'});
             return;
         }
         res.status(200).json(blogData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/:id', async (req, res) => {
+    try {
+        const blogData = await Blog.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['name'],
+                },
+            ],
+        });
+
+        if (!blogData) {
+            res.status(404).json({ message: 'No blog found with this id'});
+            return;
+        }
+        const blog = blogData.get({ plain: true});
+        res.render('blog', {
+            ...blog,
+            logged_in: req.session.logged_in,
+        });
     } catch (err) {
         res.status(500).json(err);
     }

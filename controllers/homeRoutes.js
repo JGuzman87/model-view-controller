@@ -45,9 +45,9 @@ router.get('/homepage', async (req, res) => {
   }
 });
 
-router.get('/dashboad', async (req, res) => {
+router.get('/dashboard', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
@@ -56,10 +56,10 @@ router.get('/dashboad', async (req, res) => {
       ],
     });
 
-    const blog = blogData.get({ plain: true });
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     res.render('dashboard', {
-      ...blog,
+      blogs,
       logged_in: req.session.logged_in
     });
   } catch (err) {
