@@ -55,7 +55,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+
 }
 
 .btn:hover {
@@ -79,9 +79,6 @@
     text-decoration: none;
 }
 
-.signup a:hover {
-    text-decoration: underline;
-}
 
 /* Mobile Responsive */
 @media (max-width: 768px) {

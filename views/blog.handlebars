@@ -2,24 +2,24 @@
     <h2>{{title}}</h2>
     <p>{{content}}</p>
     <p>Created by {{user.name}} on {{format_date date_created}}</p>
-</div>
 
-<div class="comments-section">
-    <h3>Comments:</h3>
+    <div class="comments-section">
+        <h3>Comments:</h3>
 
-    {{#each comments}}
-    <div class="comment">
-        <p>{{this.comment_text}}</p>
-        <p>— {{this.user.name}}, {{format_date this.createdAt}}</p>
+        {{#each comments}}
+        <div class="comment">
+            <p>{{this.comment_text}}</p>
+            <p>— {{this.user.name}}, {{format_date this.createdAt}}</p>
+        </div>
+        {{/each}}
+
+        {{#if logged_in}}
+        <form id="new-comment-form">
+            <textarea id="comment-text" name="comment_text" placeholder="Add a comment..."></textarea>
+            <button type="submit">Post Comment</button>
+        </form>
+        {{/if}}
     </div>
-    {{/each}}
-
-    {{#if logged_in}}
-    <form id="new-comment-form">
-        <textarea id="comment-text" name="comment_text" placeholder="Add a comment..."></textarea>
-        <button type="submit">Post Comment</button>
-    </form>
-    {{/if}}
 </div>
 
 <script src="/js/comment.js"></script>

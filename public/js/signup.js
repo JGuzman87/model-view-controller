@@ -21,6 +21,7 @@ const signupFormHandler = async (event) => {
      
       signup_result.textContent = message;
       signup_result.setAttribute('class', 'success');
+      signup_result.style.display = "block";
 
       
     } else {
