@@ -14,7 +14,7 @@
   The purpose of this project is to create a blog site where developers can publish their blog posts and comment on other developer's blogs aswell.
 
   ![alt text](image-1.png)
-  ![alt text](image.png)
+  ![alt text](image-2.png)
   
   website: https://mvc-techblog-755i.onrender.com
   ## Installation
