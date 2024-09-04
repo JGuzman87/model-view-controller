@@ -16,7 +16,7 @@
   ![alt text](image-1.png)
   ![alt text](image-2.png)
   
-  website: https://mvc-techblog-755i.onrender.com
+  website: https://model-view-controller-obw5.onrender.com
   ## Installation
 
   To install, clone Github repository and install on local machine.
