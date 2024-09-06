@@ -19,7 +19,7 @@
   website: https://model-view-controller-obw5.onrender.com
   ## Installation
 
-  To install, clone Github repository and install on local machine.
+  To install, clone Github repository and install on local machine. Run node server.js then npm run seed
 
 
   

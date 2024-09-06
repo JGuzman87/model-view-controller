@@ -17,11 +17,13 @@ const seedDatabase = async () => {
     users.map((user) => user.toJSON())
   );
 
-  // Seed blogs with a valid user_id
   for (const blog of blogData) {
+    const randomUser = users[Math.floor(Math.random() * users.length)];
+
     const createdBlog = await Blog.create({
       ...blog,
-      user_id: users[Math.floor(Math.random() * users.length)].id, // Assign random user_id
+      user_id: randomUser.id,
+     
     });
     console.log(
       `Blog titled "${createdBlog.title}" was assigned user_id: ${createdBlog.user_id}`
