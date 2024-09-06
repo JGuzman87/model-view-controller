@@ -1,0 +1,9 @@
+    services:
+
+      - type: web
+
+        env: production
+
+        startCommand: "npm start"  # Your usual start command
+
+        initialDeployHook: "npm run seed"  # Command to run your seeding script after initial deployment
