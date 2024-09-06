@@ -1,0 +1,15 @@
+[
+    {
+      "title": "First Blog",
+      "content": "This is a blog post used for testing purposes"
+    },
+    {
+      "title": "Second Blog",
+      "content": "This is a second blog post, anything can go here"
+    },
+    {
+      "title": "Third Blog",
+      "content": "This is third blog post, 3rd time is the charm"
+    }
+    
+]

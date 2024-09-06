@@ -39,6 +39,9 @@ Blog.init(
         underscored: true,
         modelName: 'blog',
     }
+    
 );
+
+
 
 module.exports = Blog;
